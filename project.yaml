@@ -33,5 +33,6 @@ spec:
       model_file: model_iris.pkl
     status:
       state: created
-  source: git://github.com/yevgenykhazan/mlrun-git.git#refs/heads/master
+  source: git://github.com/yevgenykhazan/mlrun-git.git#refs/heads/main
+  origin_url: git://github.com/yevgenykhazan/mlrun-git.git#refs/heads/main
   desired_state: online
