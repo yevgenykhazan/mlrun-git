@@ -29,10 +29,11 @@ spec:
       project: new-git-project
       key: model
     spec:
-      target_path: s3://mlrun/projects/new-git-project/artifacts/trainer-train/0/model/
+      target_path: v3io:///projects/new-git-project/artifacts/trainer-train/0/model/
       model_file: model_iris.pkl
     status:
       state: created
+  conda: ''
   source: git://github.com/yevgenykhazan/mlrun-git.git#refs/heads/main
   origin_url: git://github.com/yevgenykhazan/mlrun-git.git#refs/heads/main
   desired_state: online
