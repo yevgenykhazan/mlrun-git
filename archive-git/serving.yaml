@@ -1,0 +1,35 @@
+kind: serving
+metadata:
+  name: serving
+  hash: d66824d48229d6c2ba9dce8cbfdc1851343bb27b
+  project: new-git-project
+  categories: []
+spec:
+  command: ''
+  args: []
+  image: mlrun/mlrun
+  build:
+    commands: []
+  description: ''
+  disable_auto_mount: false
+  env: []
+  preemption_mode: prevent
+  min_replicas: 1
+  max_replicas: 4
+  source: ''
+  function_kind: serving_v2
+  graph:
+    kind: router
+    after: []
+    routes:
+      iris_model:
+        kind: task
+        class_name: mlrun.frameworks.sklearn.SklearnModelServer
+        class_args:
+          model_path: store://artifacts/new-git-project/model_iris:e5eb61bea5864c80b2538f982ab596d3
+        after: []
+  secret_sources: []
+  affinity: null
+  tolerations: null
+  security_context: {}
+verbose: false
