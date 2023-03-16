@@ -1,7 +1,7 @@
 kind: serving
 metadata:
   name: serving
-  hash: 5cf39ae45adb281fe60fbb08b3deb65be5e4131d
+  hash: 5df96d776f69989d8499cf7dc798c82a2dc2d632
   project: new-git-project
   categories: []
 spec:
@@ -13,14 +13,6 @@ spec:
   description: ''
   disable_auto_mount: false
   env: []
-  resources:
-    requests:
-      memory: 1Mi
-      cpu: 25m
-    limits:
-      memory: 20Gi
-      cpu: '2'
-  priority_class_name: igz-workload-medium
   preemption_mode: prevent
   min_replicas: 1
   max_replicas: 4
@@ -35,26 +27,10 @@ spec:
         kind: task
         class_name: mlrun.frameworks.sklearn.SklearnModelServer
         class_args:
-          model_path: store://artifacts/new-git-project/model_iris:366597457e8d403c82a313edaafe7a6e
+          model_path: store://artifacts/new-git-project/model_iris:b750692f6f724d539473d82cdb0f64d5
         after: []
   secret_sources: []
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: app.iguazio.com/lifecycle
-            operator: NotIn
-            values:
-            - preemptible
-          - key: eks.amazonaws.com/capacityType
-            operator: NotIn
-            values:
-            - SPOT
-          - key: node-lifecycle
-            operator: NotIn
-            values:
-            - spot
+  affinity: null
   tolerations: null
   security_context: {}
 verbose: false

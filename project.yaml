@@ -29,7 +29,7 @@ spec:
       project: new-git-project
       key: model
     spec:
-      target_path: v3io:///projects/new-git-project/artifacts/trainer-train/0/model/
+      target_path: s3://mlrun/projects/new-git-project/artifacts/trainer-train/0/model/
       model_file: model_iris.pkl
     status:
       state: created
