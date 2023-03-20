@@ -24,15 +24,8 @@ spec:
       format: ''
     status:
       state: created
-  - kind: model
-    metadata:
-      project: new-git-project
-      key: model
-    spec:
-      target_path: s3://mlrun/projects/new-git-project/artifacts/trainer-train/0/model/
-      model_file: model_iris.pkl
-    status:
-      state: created
+  - import_from: model.yaml
+    key: model
   conda: ''
   source: git://github.com/yevgenykhazan/mlrun-git.git#refs/heads/master
   origin_url: git://github.com/yevgenykhazan/mlrun-git.git#refs/heads/master
